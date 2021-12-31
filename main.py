@@ -37,5 +37,5 @@ class Blog(BaseModel):            # this object will define a Type thanks to Bas
    published: Optional[bool]
 
 @app.post('/blog')
-def create_blog(request: Blog):    #object request received has a Blog type.
-    return {'data': f'Post has been create with title : {request.title}'}
+def create_blog(blog: Blog):    #object request received has a Blog type.
+    return {'data': f'Post has been create with title : {blog.title}'}
