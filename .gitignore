@@ -132,3 +132,10 @@ dmypy.json
 
 # Apple mention
 .DS_Store
+
+# local session SQL Ligth
+fastapi.session.sql
+blog.db
+.vscode/
+
+
