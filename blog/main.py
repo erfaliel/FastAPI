@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from sqlalchemy.sql.functions import mode
+#from sqlalchemy.sql.functions import mode
 from . import schemas, models
 from .database import engine
 
