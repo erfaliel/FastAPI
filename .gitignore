@@ -135,6 +135,7 @@ dmypy.json
 
 # local session SQL Ligth
 fastapi.session.sql
+FastAPI_blog.session.sql
 blog.db
 .vscode/
 
