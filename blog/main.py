@@ -35,3 +35,20 @@ def show(id, db: Session = Depends(get_db)):
             detail=      f"Blog with the id {id} is not available")
     return blog
 
+@app.delete("/blog/{id}", status_code= status.HTTP_200_OK)
+def delete(id, db: Session = Depends(get_db)):
+    db.query(models.Blog).filter(
+        models.Blog.id == id).delete(synchronize_session=False)
+    db.commit()
+    return { "data": f"blog {id} has been deleted" }
+
+@app.put("/blog/{id}", status_code= status.HTTP_202_ACCEPTED)
+def update(id, blog: schemas.Blog, db: Session = Depends(get_db)):
+    updated_blog = {"title": blog.title, "body": blog.body}  # turn around : I can' understand why blog does not work in update
+    db.query(models.Blog).filter(models.Blog.id == id).update(updated_blog, synchronize_session=False)
+    db.commit()
+    return blog
+
+
+
+
